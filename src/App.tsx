@@ -1,17 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
 import styles from './App.module.less';
-import { JustAButton } from './components/just-a-button';
+import { Layout } from 'antd';
+import { HeaderWithNavigation } from './components/main-layout/header';
+import { SideMenu } from './components/main-layout/sider';
+
+const { Content, Footer } = Layout;
 
 function App() {
   return (
-    <div className={styles.App}>
-      <header className={styles['App-header']}>
-        <img src={logo} className={styles['App-logo']} alt="logo" />
-        <JustAButton />
-      </header>
-      <main>Main starts here...</main>
-    </div>
+    <Layout className={styles.app}>
+      <HeaderWithNavigation />
+      <Layout className={styles['app-content']}>
+        <SideMenu />
+        <Content>Main starts here...</Content>
+      </Layout>
+      <Footer className={styles['app-footer']}>
+        <span>Check out the source of the other implementations!</span>
+      </Footer>
+    </Layout>
   );
 }
 
