@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './App.module.less';
 import { Layout } from 'antd';
 import { HeaderWithNavigation } from './components/main-layout/header';
-import { SideMenu } from './components/main-layout/sider';
+import { SideMenu } from './components/main-layout/sidebar-components/sider';
 
 const { Content, Footer } = Layout;
 

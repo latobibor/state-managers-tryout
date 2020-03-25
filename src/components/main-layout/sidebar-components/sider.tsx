@@ -1,5 +1,7 @@
 import React from 'react';
 import { Menu, Layout } from 'antd';
+import { SideChat } from './side-chat';
+import styles from './sider.module.less';
 
 const { Sider } = Layout;
 
@@ -12,8 +14,12 @@ export function SideMenu() {
         defaultOpenKeys={['sub1']}
         style={{ height: '100%', borderRight: 0 }}
       >
-        <Menu.Item key="1">Chat 1</Menu.Item>
-        <Menu.Item key="2">Chat 2</Menu.Item>
+        <Menu.Item className={styles['side-menu-item']} key="1">
+          <SideChat />
+        </Menu.Item>
+        <Menu.Item className={styles['side-menu-item']} key="2">
+          <SideChat />
+        </Menu.Item>
       </Menu>
     </Sider>
   );
