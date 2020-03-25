@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './App.module.less';
 import { Layout } from 'antd';
-import { HeaderWithNavigation } from './components/main-layout/header';
-import { SideMenu } from './components/main-layout/sidebar-components/sider';
+import { HeaderWithNavigation } from './components/header-components/header';
+import { SideMenu } from './components/sidebar-components/sider';
 
 const { Content, Footer } = Layout;
 
