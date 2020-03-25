@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons-svg": "^4.0.0",
-    "antd": "^3.26.14",
+    "antd": "^4.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
