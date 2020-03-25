@@ -8,9 +8,6 @@ const { Header } = Layout;
 
 export function HeaderWithNavigation() {
   return (
-    // <Menu theme="dark" mode="horizontal" >
-    // <Menu.Item key="1">Redux version</Menu.Item>
-    // </Menu>
     <Header>
       <Row>
         <Col span={4}>
