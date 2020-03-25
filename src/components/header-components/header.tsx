@@ -17,7 +17,7 @@ export function HeaderWithNavigation() {
     <Header>
       <Row>
         <Col span={titleSpanWidth}>
-          <Text className={styles.text}>State Management Try Outs</Text>
+          <Text className={styles.text} ellipsis>State Management Try Outs</Text>
         </Col>
         <Col span={menuSpanWidth}>
           <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
