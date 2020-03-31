@@ -1,8 +1,13 @@
 @import '../../shared-styles/variables.module.less';
 
+@chat-container-margin-size: @spacing-unit * 3;
+
 .chat-container {
-  min-height: 80%;
-  width: 33%;
+  box-sizing: border-box;
+  margin: @chat-container-margin-size 0 0 @chat-container-margin-size;
+
+  // horrible hack; flex-box with a dynamic size scrollable content with it depends on something around having explicit size
+  height: calc(100vh - (@header-size + @footer-size + @chat-container-margin-size + @spacing-unit));
 
   display: flex;
   flex-direction: column;
@@ -11,6 +16,24 @@
   background-color: white;
 }
 
+.chat-title {
+  flex-grow: 0;
+}
+
 .messages-container {
-  flex: auto;
+  flex-grow: 1;
+
+  box-sizing: border-box;
+  height: 100%;
+  padding: 0 @spacing-unit * 3;
+
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
+  overflow-y: scroll;
+  min-height: 0;
+}
+
+.chat-message-editor {
+  flex-grow: 0;
 }

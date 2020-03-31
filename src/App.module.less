@@ -1,29 +1,12 @@
 @import './shared-styles/variables.module.less';
 
-.app {
-  height: 100%;
-}
-
-.app-header {
-  min-height: 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 .app-footer {
   text-align: center;
   padding: 20px;
 }
 
 .app-content {
-  min-height: 300px;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
 }
-
-.app-chat-content {
-  padding: @spacing-unit * 3 @spacing-unit * 3 0 @spacing-unit * 3;
-}
-

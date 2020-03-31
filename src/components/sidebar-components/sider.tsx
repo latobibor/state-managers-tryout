@@ -1,13 +1,11 @@
 import React from 'react';
-import { Menu, Layout } from 'antd';
+import { Menu } from 'antd';
 import { SideChat } from './side-chat';
 import styles from './sider.module.less';
 
-const { Sider } = Layout;
-
 export function SideMenu() {
   return (
-    <Sider width={300} breakpoint="lg" collapsedWidth="0" className={'site-layout-background'}>
+    <div className={styles.sider}>
       <Menu
         mode="inline"
         defaultSelectedKeys={['1']}
@@ -21,6 +19,6 @@ export function SideMenu() {
           <SideChat />
         </Menu.Item>
       </Menu>
-    </Sider>
+    </div>
   );
 }

@@ -1,24 +1,21 @@
 import React from 'react';
-import { Layout } from 'antd';
 import styles from './chat-container.module.less';
 import { Name } from './name';
 import { MessageEditor } from './message-editor';
 import { Messages } from './messages/messages';
 
-const { Content } = Layout;
-
 export function ChatContainer() {
   return (
-    <Content className={styles['chat-container']}>
-      <div>
+    <div className={styles['chat-container']}>
+      <div className={styles['chat-title']}>
         <Name />
       </div>
       <div className={styles['messages-container']}>
         <Messages />
       </div>
-      <div>
+      <div className={styles['chat-message-editor']}>
         <MessageEditor />
       </div>
-    </Content>
+    </div>
   );
 }

@@ -29,10 +29,10 @@ export function MessageEditor() {
   return (
     <div className={styles['message-editor']}>
       <Form name="message-editor" ref={formReference} onFinish={sendMessage}>
-        <Form.Item name="message">
+        <Form.Item name="message" className={styles['form-item']}>
           <TextArea rows={5} onPressEnter={handleEnter} />
         </Form.Item>
-        <Form.Item>
+        <Form.Item className={styles['form-item']}>
           <Button className={styles['send-button']} type="primary" htmlType="submit">
             Send
           </Button>

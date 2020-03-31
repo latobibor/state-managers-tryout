@@ -1,4 +1,40 @@
+@import '../../shared-styles/variables.module.less';
+
+.header {
+  height: @header-size;
+  color: white;
+  line-height: @header-size;
+  background: #001529;
+
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+  
+  box-sizing: border-box;
+}
+
 .text {
   color: lightblue;
   font-weight: bold;
 }
+
+.title {
+  flex-grow: 0;
+  .padding-x(@spacing-unit * 2);
+}
+
+.implementation-selector {
+  flex-grow: 1;
+  .padding-x(@spacing-unit * 2)
+}
+
+.ant-menu-override {
+  line-height: @header-size;
+}
+
+.notifications {
+  flex-grow: 0;
+}
+
+

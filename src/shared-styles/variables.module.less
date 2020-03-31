@@ -1,1 +1,11 @@
 @spacing-unit: 8px;
+
+// layout variables used for calculations where needed (a hack needed until I find the silver bullet for dynamic chat content)
+@footer-size: @spacing-unit * 8;
+@header-size: @spacing-unit * 8;
+
+// todo: move to functions.module.less
+.padding-x(@padding-size) {
+  padding-left: @padding-size;
+  padding-right: @padding-size;
+}
