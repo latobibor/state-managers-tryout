@@ -1,4 +1,4 @@
-import { Message } from '../clients/messages-data';
+import { MessageData } from '../clients/messages-data';
 import { User } from '../clients/user-data';
 
 export const dummyCurrentUser: User = {
@@ -11,7 +11,7 @@ export const person1: User = { name: 'Alberto Batepapo', id: 'usr134234' };
 export const chatId2 = '1232abfd-345dfa';
 export const person2: User = { name: 'Csevely Csenge', id: 'usr45643645' }; // 'cs' is pronounced 'ch' in Hungarian, while 'ly' is 'y'
 
-export const mockMessages: Message[] = [
+export const mockMessages: MessageData[] = [
   {
     chatId: chatId1,
     from: person1,

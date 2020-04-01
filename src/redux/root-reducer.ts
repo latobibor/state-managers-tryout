@@ -1,5 +1,5 @@
 import { GlobalState, initialState } from './global-state';
-import { Message } from '../clients/messages-data';
+import { MessageData } from '../clients/messages-data';
 import { Reducer } from 'redux';
 
 export enum Actions {
@@ -15,7 +15,7 @@ export type DispatchAction<T extends Action> = (payload: T) => void;
 
 export interface AddMessageAction extends Action {
   type: Actions.AddMessage;
-  message: Message;
+  message: MessageData;
 }
 
 export interface SelectChatAction extends Action {

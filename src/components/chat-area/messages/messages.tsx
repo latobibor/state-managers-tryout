@@ -1,14 +1,30 @@
 import React from 'react';
 import { Message } from './message';
 import styles from './messages.module.less';
+import { MessageData } from '../../../clients/messages-data';
+import { GlobalState } from '../../../redux/global-state';
+import { useSelector } from 'react-redux';
 
-export function Messages() {
+interface MessagesProps {
+  messages: MessageData[];
+}
+
+// todo: candidate for extraction
+function getCurrentUserId(globalState: GlobalState): string {
+  if (!globalState) {
+    return '';
+  }
+
+  return globalState.currentUser.id;
+}
+
+export function Messages({ messages }: MessagesProps) {
+  const currentUserId = useSelector<GlobalState, string>(getCurrentUserId);
   return (
     <div className={styles.messages}>
-      <Message text="Well LOL, hello there, I kinda did something, but forgot, rotfl. Mao. I mean." isSent={false} />
-      <Message text="Who are you? Honestly, I have no recollection." isSent={true} />
-      <Message text="Ah, sorry, I am Delilah Desayuno. Funny that we have surnames about food." isSent={false} />
-      <Message text="Yeay, OK, cool, but still creepy that you have messaged me" isSent={true} />
+      {messages.map((message) => (
+        <Message key={message.time.toISOString()} text={message.body} isSent={currentUserId === message.from.id} />
+      ))}
     </div>
   );
 }

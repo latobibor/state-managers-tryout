@@ -5,12 +5,10 @@ import styles from './sider.module.less';
 import { useDispatch } from 'react-redux';
 import { Actions, SelectChatAction, DispatchAction } from '../../redux/root-reducer';
 import { SelectParam } from 'antd/lib/menu';
+import { chatId1, chatId2 } from '../../redux/mock-messages';
 
 export function SideMenu() {
-  const chatId1 = '12312';
-  const chatId2 = '2423423';
-
-  const dispatch = useDispatch<DispatchAction<SelectChatAction>>();
+   const dispatch = useDispatch<DispatchAction<SelectChatAction>>();
 
   function dispatchSelectedChat({ key }: SelectParam) {
     dispatch({ type: Actions.SelectChat, chatId: key });

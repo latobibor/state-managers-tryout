@@ -1,6 +1,6 @@
 import { User } from './user-data';
 
-export type Message = {
+export type MessageData = {
   chatId: string;
   from: User;
   body: string;
