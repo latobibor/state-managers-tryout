@@ -11,15 +11,12 @@ interface MessagesProps {
 
 // todo: candidate for extraction
 function getCurrentUserId(globalState: GlobalState): string {
-  if (!globalState) {
-    return '';
-  }
-
   return globalState.currentUser.id;
 }
 
 export function Messages({ messages }: MessagesProps) {
   const currentUserId = useSelector<GlobalState, string>(getCurrentUserId);
+
   return (
     <div className={styles.messages}>
       {messages.map((message) => (

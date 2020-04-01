@@ -19,14 +19,14 @@ export const mockChats: Chats = {
         chatId: chatId1,
         from: person1,
         body: 'Well LOL, hello there, I kinda did something, but forgot, rotfl. Mao. I mean.',
-        time: new Date('2020-04-01 12:12'),
+        time: new Date('2020-04-01 12:12:59'),
         isRead: false,
       },
       {
         chatId: chatId1,
         from: dummyCurrentUser,
         body: 'Who are you and what did you do? This is creepy.',
-        time: new Date('2020-04-01 12:13'),
+        time: new Date('2020-04-01 12:13:03'),
         isRead: false,
       },
       {
@@ -34,7 +34,7 @@ export const mockChats: Chats = {
         from: person1,
         body:
           'Ah, sorry, I am Alberto Batepapo. I am a chatty person. I start to talk before I know what I want to say',
-        time: new Date('2020-04-01 12:12'),
+        time: new Date('2020-04-01 12:13:23'),
         isRead: false,
       },
       {

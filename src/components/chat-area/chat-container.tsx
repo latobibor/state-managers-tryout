@@ -19,12 +19,6 @@ const dummyDataForEmptyCases: ContainerData = {
 };
 
 function getActiveChat(globalState: GlobalState): ContainerData {
-  console.log('GlobalState', globalState);
-
-  if (!globalState) {
-    return dummyDataForEmptyCases;
-  }
-
   const { activeChatId, currentUser, chats } = globalState;
 
   if (!activeChatId) {
