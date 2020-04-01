@@ -54,13 +54,13 @@ export function ChatContainer() {
 
   return (
     <div className={styles['chat-container']}>
-      <div className={styles['chat-title']}>
+      <div>
         <Name name={senderName} />
       </div>
       <div className={styles['messages-container']}>
         <Messages messages={messages} />
       </div>
-      <div className={styles['chat-message-editor']}>
+      <div>
         <MessageEditor />
       </div>
     </div>
