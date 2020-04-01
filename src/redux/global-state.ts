@@ -1,5 +1,6 @@
 import { Message } from '../clients/messages-data';
 import { User } from '../clients/user-data';
+import { mockMessages, dummyCurrentUser } from './mock-messages';
 
 export type GlobalState = {
   activeChatId: string | undefined;
@@ -7,13 +8,8 @@ export type GlobalState = {
   messages: Message[];
 };
 
-const dummyCurrentUser: User = {
-  id: 'abc123',
-  name: 'Sir Humphrey Codothon',
-};
-
 export const initialState = {
   activeChatId: undefined,
   currentUser: dummyCurrentUser,
-  messages: [],
+  messages: mockMessages,
 };
