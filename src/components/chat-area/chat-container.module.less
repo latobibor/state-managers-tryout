@@ -7,6 +7,9 @@
   margin: @chat-container-margin-size 0 0 @chat-container-margin-size;
 
   // horrible hack; flex-box with a dynamic size scrollable content with it depends on something around having explicit size
+  // todo: the stylelint error is a false positive which will be fixed in the next release (13.2.1+)
+  // https://github.com/stylelint/stylelint/commit/8db24a3b4d50fedb7dad6c31f3b4300d6b7f0d93
+  // stylelint-disable-next-line function-calc-no-invalid
   height: calc(100vh - (@header-size + @footer-size + @chat-container-margin-size + @spacing-unit));
   width: 25vw;
 
