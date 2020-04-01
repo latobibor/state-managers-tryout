@@ -6,19 +6,22 @@ const { Text } = Typography;
 
 interface SideChatProps {
   chatId: string;
+  name: string;
+  lastLine: string;
 }
 
-export function SideChat({ chatId }: SideChatProps) {
+export function SideChat({ chatId, name, lastLine }: SideChatProps) {
   return (
     <div>
       <Row>
         <Text strong ellipsis>
-          Alberto Batepapo
+          {name}
         </Text>
       </Row>
       <Row>
         <Text ellipsis>
-          <ExportOutlined />I wish you could see my other messages, but hey, that's what we have now.
+          <ExportOutlined />
+          {lastLine}
         </Text>
       </Row>
     </div>
