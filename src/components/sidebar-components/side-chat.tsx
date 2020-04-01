@@ -4,11 +4,17 @@ import { Row, Typography } from 'antd';
 
 const { Text } = Typography;
 
-export function SideChat() {
+interface SideChatProps {
+  chatId: string;
+}
+
+export function SideChat({ chatId }: SideChatProps) {
   return (
     <div>
       <Row>
-        <Text strong ellipsis>Alberto Batepapo</Text>
+        <Text strong ellipsis>
+          Alberto Batepapo
+        </Text>
       </Row>
       <Row>
         <Text ellipsis>

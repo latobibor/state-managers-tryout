@@ -2,7 +2,7 @@ import React, { createRef, KeyboardEvent } from 'react';
 import { Input, Button, Form } from 'antd';
 import styles from './message-editor.module.less';
 import { useDispatch } from 'react-redux';
-import { Actions } from '../../redux/root-reducer';
+import { Actions, DispatchAction, AddMessageAction } from '../../redux/root-reducer';
 import { FormInstance } from 'antd/lib/form';
 
 const { TextArea } = Input;
@@ -10,7 +10,7 @@ const { TextArea } = Input;
 export function MessageEditor() {
   const formReference = createRef<FormInstance>();
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<DispatchAction<AddMessageAction>>();
 
   // this sucks I need to find a way to load antd's own interface for this function
   function sendMessage(values: any) {
