@@ -5,12 +5,11 @@ import { Row, Typography } from 'antd';
 const { Text } = Typography;
 
 interface SideChatProps {
-  chatId: string;
   name: string;
   lastLine: string;
 }
 
-export function SideChat({ chatId, name, lastLine }: SideChatProps) {
+export function SideChat({ name, lastLine }: SideChatProps) {
   return (
     <div>
       <Row>

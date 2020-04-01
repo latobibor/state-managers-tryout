@@ -90,7 +90,7 @@ export function SideMenu() {
       >
         {chats.map(({name, lastLine, chatId }) => (
           <Menu.Item className={styles['side-menu-item']} key={chatId}>
-            <SideChat chatId={chatId} name={name} lastLine={lastLine} />
+            <SideChat name={name} lastLine={lastLine} />
           </Menu.Item>
         ))}
       </Menu>
