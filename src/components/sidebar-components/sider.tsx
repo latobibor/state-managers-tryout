@@ -8,6 +8,7 @@ import { SelectParam } from 'antd/lib/menu';
 import { chatId1, chatId2, person1, person2 } from '../../redux/mock-messages';
 import { GlobalState } from '../../redux/global-state';
 import { MessageData } from '../../clients/messages-data';
+import { getSenderNameFromRecipients } from '../../common/current-user-calculations';
 
 type MenuItemProps = {
   chatId: string;
@@ -31,10 +32,16 @@ function getSimplifiedChats(globalState: GlobalState): MenuItemProps[] {
     ];
   }
 
-  const { messages } = globalState;
+  const { chats, currentUser } = globalState;
+
+  const chatIds = Object.keys(chats);
 
   // this is an example just to play with redux, hooks and others, so this is not production but it's OK now
-  return [getNameAndLastMessageByChatId(chatId1, messages), getNameAndLastMessageByChatId(chatId2, messages)];
+  return chatIds.map((chatId) => ({
+    chatId,
+    name: getSenderNameFromRecipients(currentUser, chats[chatId].recipients),
+    lastLine: chats[chatId].messages.sort(reverseSortByTime)[0].body,
+  }));
 }
 
 function reverseSortByTime(a: MessageData, b: MessageData): number {
@@ -51,23 +58,6 @@ function reverseSortByTime(a: MessageData, b: MessageData): number {
   }
 
   return 0;
-}
-
-function getNameAndLastMessageByChatId(
-  chatId: string,
-  messages: MessageData[]
-): { chatId: string; name: string; lastLine: string } {
-  const filteredSortedMessages = messages
-    .filter((message) => message.chatId === chatId)
-    .sort(reverseSortByTime);
-
-  const lastMessage = filteredSortedMessages[0];
-
-  return {
-    chatId,
-    name: lastMessage.from.name,
-    lastLine: lastMessage.body,
-  };
 }
 
 export function SideMenu() {
@@ -88,7 +78,7 @@ export function SideMenu() {
         defaultOpenKeys={['sub1']}
         onSelect={dispatchSelectedChat}
       >
-        {chats.map(({name, lastLine, chatId }) => (
+        {chats.map(({ name, lastLine, chatId }) => (
           <Menu.Item className={styles['side-menu-item']} key={chatId}>
             <SideChat name={name} lastLine={lastLine} />
           </Menu.Item>

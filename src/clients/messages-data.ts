@@ -7,3 +7,10 @@ export type MessageData = {
   time: Date;
   isRead: boolean;
 };
+
+export type Chats = {
+  [chatId: string]: {
+    recipients: User[];
+    messages: MessageData[];
+  };
+};

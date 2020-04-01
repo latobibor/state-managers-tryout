@@ -31,8 +31,18 @@ export const rootReducer: Reducer<GlobalState, CombinedActionType> = (
 ): GlobalState => {
   switch (action.type) {
     case Actions.AddMessage:
+      const { message } = action;
+      const { chatId } = message;
       console.log('Actions.AddMessage', action.message);
-      return { ...state, messages: [...state.messages, action.message] };
+
+      const newChatsState = Object.assign({}, state.chats, {
+        [chatId]: {
+          recipients: state.chats[chatId].recipients,
+          messages: [...state.chats[chatId].messages, message],
+        },
+      });
+
+      return { ...state, chats: newChatsState };
     case Actions.SelectChat:
       console.log('Actions.SelectChat', action.chatId);
       return { ...state, activeChatId: action.chatId };

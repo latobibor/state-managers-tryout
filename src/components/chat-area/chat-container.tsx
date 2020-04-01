@@ -6,21 +6,12 @@ import { Messages } from './messages/messages';
 import { GlobalState } from '../../redux/global-state';
 import { useSelector } from 'react-redux';
 import { MessageData } from '../../clients/messages-data';
+import { getSenderNameFromRecipients } from '../../common/current-user-calculations';
 
 type ContainerData = {
   senderName: string;
   messages: MessageData[];
 };
-
-function getSendersName(messages: MessageData[]): string {
-  // this is not "production ready" but this repo is about trying out technologies
-  // so this simplification is fine now
-  return messages[0] ? messages[0].from.name : 'N/A';
-}
-
-function getMessagesForChatId(activeChatId: string, messages: MessageData[]): MessageData[] {
-  return messages.filter((message) => message.chatId === activeChatId);
-}
 
 const dummyDataForEmptyCases: ContainerData = {
   senderName: 'N/A',
@@ -34,18 +25,18 @@ function getActiveChat(globalState: GlobalState): ContainerData {
     return dummyDataForEmptyCases;
   }
 
-  const { messages, activeChatId } = globalState;
+  const { activeChatId, currentUser, chats } = globalState;
 
   if (!activeChatId) {
     return dummyDataForEmptyCases;
   }
 
-  const filteredMessages = getMessagesForChatId(activeChatId, messages);
-  const senderName = getSendersName(filteredMessages);
+  const { messages, recipients } = chats[activeChatId];
+  const senderName = getSenderNameFromRecipients(currentUser, recipients);
 
   return {
     senderName,
-    messages: filteredMessages,
+    messages: messages,
   };
 }
 
