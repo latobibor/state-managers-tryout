@@ -3,6 +3,7 @@ import { MessageData } from '../clients/messages-data';
 import { Reducer } from 'redux';
 
 export enum Actions {
+  _Init = '@@redux/INIT',
   AddMessage = 'ADD MESSAGE',
   SelectChat = 'SELECT CHAT',
 }
@@ -23,12 +24,20 @@ export interface SelectChatAction extends Action {
   chatId: string;
 }
 
-export type CombinedActionType = AddMessageAction | SelectChatAction;
+export interface _InitAction extends Action {
+  type: Actions._Init;
+}
+
+export type CombinedActionType = AddMessageAction | SelectChatAction | _InitAction;
 
 export const rootReducer: Reducer<GlobalState, CombinedActionType> = (
   state = initialState,
   action: CombinedActionType
 ): GlobalState => {
+  if (action.type.toString().startsWith(Actions._Init.toString())) {
+    return state;
+  }
+
   switch (action.type) {
     case Actions.AddMessage:
       const { message } = action;
@@ -46,5 +55,7 @@ export const rootReducer: Reducer<GlobalState, CombinedActionType> = (
     case Actions.SelectChat:
       console.log('Actions.SelectChat', action.chatId);
       return { ...state, activeChatId: action.chatId };
+    default:
+      throw new Error(`Event name ${action.type} was not recognized; please implement it`);
   }
 };
