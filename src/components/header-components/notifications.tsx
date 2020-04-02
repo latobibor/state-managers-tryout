@@ -29,7 +29,9 @@ export function Notifications() {
       <div className={styles.notification}>
         <CommentOutlined className={styles['notification-icon']} />
         &nbsp;
-        <span className={`${styles['notification-number']} ${styles['active']}`}>{numberOfUnreadChats}</span>
+        {numberOfUnreadChats > 0 && (
+          <span className={`${styles['notification-number']} ${styles['active']}`}>{numberOfUnreadChats}</span>
+        )}
       </div>
     </div>
   );
