@@ -9,8 +9,10 @@ export type MessageData = {
 };
 
 export type Chats = {
-  [chatId: string]: {
-    recipients: User[];
-    messages: MessageData[];
-  };
+  [chatId: string]: Chat;
+};
+
+export type Chat = {
+  recipients: User[];
+  messages: MessageData[];
 };
