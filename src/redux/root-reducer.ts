@@ -1,6 +1,8 @@
 import { GlobalState, initialState } from './global-state';
 import { MessageData } from '../clients/messages-data';
 import { Reducer } from 'redux';
+import { addMessage } from './actions/add-message';
+import { selectChat } from './actions/select-chat';
 
 export enum Actions {
   _Init = '@@redux/INIT',
@@ -28,6 +30,7 @@ export interface _InitAction extends Action {
   type: Actions._Init;
 }
 
+// todo: there should be a helper for this (written by me or a lib); this is not gonna scale
 export type CombinedActionType = AddMessageAction | SelectChatAction | _InitAction;
 
 export const rootReducer: Reducer<GlobalState, CombinedActionType> = (
@@ -40,21 +43,9 @@ export const rootReducer: Reducer<GlobalState, CombinedActionType> = (
 
   switch (action.type) {
     case Actions.AddMessage:
-      const { message } = action;
-      const { chatId } = message;
-      console.log('Actions.AddMessage', action.message);
-
-      const newChatsState = Object.assign({}, state.chats, {
-        [chatId]: {
-          recipients: state.chats[chatId].recipients,
-          messages: [...state.chats[chatId].messages, message],
-        },
-      });
-
-      return { ...state, chats: newChatsState };
+      return addMessage(state, action);
     case Actions.SelectChat:
-      console.log('Actions.SelectChat', action.chatId);
-      return { ...state, activeChatId: action.chatId };
+      return selectChat(state, action);
     default:
       throw new Error(`Event name ${action.type} was not recognized; please implement it`);
   }
