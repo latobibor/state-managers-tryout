@@ -15,7 +15,7 @@ function countNumberOfUnreadChats({ chats }: GlobalState): number {
   }
 
   function sumUnreadMessagesByChat(accumulator: number, currentValue: Chat): number {
-    return accumulator + currentValue.messages.reduce<number>(countNumberOfUnreadMessages, 0)
+    return accumulator + currentValue.messages.reduce<number>(countNumberOfUnreadMessages, 0);
   }
 
   return Object.values(chats).reduce<number>(sumUnreadMessagesByChat, 0);
