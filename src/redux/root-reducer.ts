@@ -8,6 +8,7 @@ export enum Actions {
   _Init = '@@redux/INIT',
   AddMessage = 'ADD MESSAGE',
   SelectChat = 'SELECT CHAT',
+  ToggleMessageGeneration = 'TOGGLE MESSAGE GENERATION',
 }
 
 export interface Action {
@@ -26,12 +27,17 @@ export interface SelectChatAction extends Action {
   chatId: string;
 }
 
+export interface ToggleMessageGenerationAction extends Action {
+  type: Actions.ToggleMessageGeneration;
+  automaticallySendMessages: boolean;
+}
+
 export interface _InitAction extends Action {
   type: Actions._Init;
 }
 
 // todo: there should be a helper for this (written by me or a lib); this is not gonna scale
-export type CombinedActionType = AddMessageAction | SelectChatAction | _InitAction;
+export type CombinedActionType = AddMessageAction | SelectChatAction | ToggleMessageGenerationAction | _InitAction;
 
 export const rootReducer: Reducer<GlobalState, CombinedActionType> = (
   state = initialState,
@@ -46,6 +52,8 @@ export const rootReducer: Reducer<GlobalState, CombinedActionType> = (
       return addMessage(state, action);
     case Actions.SelectChat:
       return selectChat(state, action);
+    case Actions.ToggleMessageGeneration:
+      return { ...state, automaticallySendMessages: action.automaticallySendMessages };
     default:
       throw new Error(`Event name ${action.type} was not recognized; please implement it`);
   }

@@ -6,10 +6,12 @@ export type GlobalState = {
   activeChatId: string | undefined;
   currentUser: User;
   chats: Chats;
+  automaticallySendMessages: boolean;
 };
 
 export const initialState = {
   activeChatId: undefined,
   currentUser: dummyCurrentUser,
   chats: mockChats,
+  automaticallySendMessages: true,
 };
