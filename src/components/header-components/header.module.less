@@ -15,7 +15,7 @@
 }
 
 .text {
-  color: lightblue;
+  color: white;
   font-weight: bold;
 }
 
@@ -31,6 +31,10 @@
 
 .ant-menu-override {
   line-height: @header-size;
+
+  li[class*='ant-menu-item-selected'] {
+    background-color: @main-color !important;
+  }
 }
 
 .socket-controls-container {

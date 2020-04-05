@@ -1,6 +1,7 @@
 import React from 'react';
 import { ExportOutlined } from '@ant-design/icons';
 import { Row, Typography } from 'antd';
+import styles from './side-chat.module.less';
 
 const { Text } = Typography;
 
@@ -13,7 +14,7 @@ export function SideChat({ name, lastLine }: SideChatProps) {
   return (
     <div>
       <Row>
-        <Text strong ellipsis>
+        <Text strong ellipsis className={styles.title}>
           {name}
         </Text>
       </Row>

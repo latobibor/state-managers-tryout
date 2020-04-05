@@ -1,3 +1,5 @@
+@import '../../shared-styles/variables.module.less';
+
 .sider {
   width: 20vw;
   box-sizing: border-box;
@@ -10,4 +12,14 @@
 
 .side-menu-item {
   height: auto !important;
+  margin-top: 0;
+
+  // To override outside of the module an ant-menu color I needed to bypass class prefix of CSS modules
+  li[class*='ant-menu-item-selected']& {
+    background-color: @main-color-very-light !important;
+
+    &::after {
+      border-right: 3px solid @main-color;
+    }
+  }
 }

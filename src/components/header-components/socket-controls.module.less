@@ -1,15 +1,13 @@
 @import '../../shared-styles/variables.module.less';
 
-@control-color: red;
-
 .socket-controls {
   width: 100px;
-  background-color: fade(@control-color, 30%);
+  background-color: fade(@highlight-color, 30%);
   font-size: @spacing-unit * 3;
-  color: @control-color;
+  color: @highlight-color;
   text-align: center;
 }
 
 .disabled {
-  color: grey;
+  color: rgb(200, 200, 200);
 }
