@@ -5,9 +5,9 @@ import { useSelector } from 'react-redux';
 import { GlobalState } from '../../redux/global-state';
 import { Chat, MessageData } from '../../clients/messages-data';
 
-function countNumberOfUnreadChats({ chats }: GlobalState): number {
+function countNumberOfUnreadChats({ chats, currentUser }: GlobalState): number {
   function countNumberOfUnreadMessages(accumulator: number, currentValue: MessageData): number {
-    if (!currentValue.isRead) {
+    if (!currentValue.isRead && currentValue.from.id !== currentUser.id) {
       return accumulator + 1;
     }
 

@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Menu } from 'antd';
 import { SideChat } from './side-chat';
 import styles from './sider.module.less';
 import { useDispatch, useSelector } from 'react-redux';
 import { Actions, SelectChatAction, DispatchAction } from '../../redux/root-reducer';
-import { SelectParam } from 'antd/lib/menu';
 import { chatId1, chatId2, person1, person2 } from '../../redux/mock-messages';
 import { GlobalState } from '../../redux/global-state';
 import { MessageData } from '../../clients/messages-data';
@@ -60,12 +59,23 @@ function reverseSortByTime(a: MessageData, b: MessageData): number {
   return 0;
 }
 
+interface Dispa {
+  key: string;
+}
+
 export function SideMenu() {
   const dispatch = useDispatch<DispatchAction<SelectChatAction>>();
 
-  function dispatchSelectedChat({ key }: SelectParam) {
+  function dispatchSelectedChat({ key }: Dispa) {
     dispatch({ type: Actions.SelectChat, chatId: key });
   }
+
+  function selectFirstChatOnLoad() {
+    dispatchSelectedChat({ key: chatId1 });
+  }
+
+  const emptyConditionToMakeUseEffectFireOnce: string[] = [];
+  useEffect(selectFirstChatOnLoad, emptyConditionToMakeUseEffectFireOnce);
 
   const chats = useSelector<GlobalState, MenuItemProps[]>(getSimplifiedChats);
 

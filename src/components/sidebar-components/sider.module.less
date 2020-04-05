@@ -14,7 +14,8 @@
   height: auto !important;
   margin-top: 0;
 
-  // To override outside of the module an ant-menu color I needed to bypass class prefix of CSS modules
+  // CSS modules suffixes class names. In order to override the active color of the antd side menu
+  // I needed to hide the classname from the suffixer
   li[class*='ant-menu-item-selected']& {
     background-color: @main-color-very-light !important;
 
