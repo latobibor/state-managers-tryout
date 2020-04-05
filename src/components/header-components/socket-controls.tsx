@@ -87,7 +87,7 @@ class SocketControlsCore extends React.Component<PropsFromRedux> implements Sock
         const message = createMessage(!!(Math.random() < 0.5));
 
         this.props.sendMessage(message);
-      }, 3000) as unknown as number);
+      }, 3000) as unknown) as number;
       return;
     }
 
@@ -95,12 +95,14 @@ class SocketControlsCore extends React.Component<PropsFromRedux> implements Sock
   }
 
   render() {
-    const { changeMessageGenerationTo } = this.props;
+    const { automaticallySendMessages, changeMessageGenerationTo } = this.props;
+    const playButtonStyle = (automaticallySendMessages && styles.disabled) || '';
+    const stopButtonStyle = (!automaticallySendMessages && styles.disabled) || '';
 
     return (
       <div className={styles['socket-controls']}>
-        <CaretRightOutlined onClick={() => changeMessageGenerationTo(true)} />
-        <CloseOutlined onClick={() => changeMessageGenerationTo(false)} />
+        <CaretRightOutlined className={playButtonStyle} onClick={() => changeMessageGenerationTo(true)} />
+        <CloseOutlined className={stopButtonStyle} onClick={() => changeMessageGenerationTo(false)} />
       </div>
     );
   }
