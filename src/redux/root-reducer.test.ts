@@ -1,5 +1,5 @@
 import { rootReducer, Actions } from './root-reducer';
-import { GlobalState } from './global-state';
+import { GlobalState } from '../shared-types/global-state';
 import { dummyCurrentUser } from './mock-messages';
 import { User } from '../clients/user-data';
 

@@ -1,5 +1,5 @@
 import { AddMessageAction } from '../root-reducer';
-import { GlobalState } from '../global-state';
+import { GlobalState } from '../../shared-types/global-state';
 import { MessageData } from '../../clients/messages-data';
 
 export function addMessage(state: GlobalState, action: AddMessageAction): GlobalState {

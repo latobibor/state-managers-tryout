@@ -3,7 +3,7 @@ import styles from './chat-container.module.less';
 import { Name } from './name';
 import { MessageEditor } from './message-editor';
 import { Messages } from './messages/messages';
-import { GlobalState } from '../../redux/global-state';
+import { GlobalState } from '../../shared-types/global-state';
 import { useSelector } from 'react-redux';
 import { MessageData } from '../../clients/messages-data';
 import { getSenderNameFromRecipients } from '../../common/current-user-calculations';
@@ -34,7 +34,7 @@ function getActiveChat(globalState: GlobalState): ContainerData {
   };
 }
 
-export function ChatContainer() {
+export function ChatContainerRedux() {
   const { senderName, messages } = useSelector<GlobalState, ContainerData>(getActiveChat);
 
   return (

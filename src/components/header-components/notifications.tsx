@@ -2,7 +2,7 @@ import React from 'react';
 import { CommentOutlined } from '@ant-design/icons';
 import styles from './notifications.module.less';
 import { useSelector } from 'react-redux';
-import { GlobalState } from '../../redux/global-state';
+import { GlobalState } from '../../shared-types/global-state';
 import { Chat, MessageData } from '../../clients/messages-data';
 
 function countNumberOfUnreadChats({ chats, currentUser }: GlobalState): number {

@@ -4,7 +4,7 @@ import styles from './message-editor.module.less';
 import { useDispatch, useSelector } from 'react-redux';
 import { Actions, DispatchAction, AddMessageAction } from '../../redux/root-reducer';
 import { FormInstance } from 'antd/lib/form';
-import { GlobalState } from '../../redux/global-state';
+import { GlobalState } from '../../shared-types/global-state';
 import { User } from '../../clients/user-data';
 
 const { TextArea } = Input;

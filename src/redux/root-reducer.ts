@@ -1,4 +1,4 @@
-import { GlobalState, initialState } from './global-state';
+import { GlobalState, initialState } from '../shared-types/global-state';
 import { MessageData } from '../clients/messages-data';
 import { Reducer } from 'redux';
 import { addMessage } from './actions/add-message';

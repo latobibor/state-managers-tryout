@@ -4,13 +4,17 @@ import './shared-styles/variables.module.less';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { Provider } from 'react-redux';
+import { Provider as ReduxProvider } from 'react-redux';
+import { Provider as OvermindProvider } from 'overmind-react';
 import { store } from './redux/store';
+import { overmind } from './overmind';
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <ReduxProvider store={store}>
+    <OvermindProvider value={overmind}>
+      <App />
+    </OvermindProvider>
+  </ReduxProvider>,
   document.getElementById('root')
 );
 

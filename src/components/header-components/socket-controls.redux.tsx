@@ -3,7 +3,7 @@ import { connect, ConnectedProps } from 'react-redux';
 import { DispatchAction, Actions, CombinedActionType } from '../../redux/root-reducer';
 import { CloseOutlined, CaretRightOutlined } from '@ant-design/icons';
 import styles from './socket-controls.module.less';
-import { GlobalState } from '../../redux/global-state';
+import { GlobalState } from '../../shared-types/global-state';
 import { MessageData } from '../../clients/messages-data';
 import { createMessage } from '../../clients/message-websocket';
 import { connection } from '../../common/web-socket';

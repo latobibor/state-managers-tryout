@@ -2,7 +2,7 @@ import React from 'react';
 import { Message } from './message';
 import styles from './messages.module.less';
 import { MessageData } from '../../../clients/messages-data';
-import { GlobalState } from '../../../redux/global-state';
+import { GlobalState } from '../../../shared-types/global-state';
 import { useSelector } from 'react-redux';
 
 interface MessagesProps {

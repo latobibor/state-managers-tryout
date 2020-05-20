@@ -5,7 +5,7 @@ import styles from './sider.module.less';
 import { useDispatch, useSelector } from 'react-redux';
 import { Actions, SelectChatAction, DispatchAction } from '../../redux/root-reducer';
 import { chatId1, chatId2, person1, person2 } from '../../redux/mock-messages';
-import { GlobalState } from '../../redux/global-state';
+import { GlobalState } from '../../shared-types/global-state';
 import { MessageData } from '../../clients/messages-data';
 import { getSenderNameFromRecipients } from '../../common/current-user-calculations';
 
