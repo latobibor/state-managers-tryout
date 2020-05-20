@@ -30,3 +30,7 @@ export const selectChat: Action<string> = function selectChat({ state }, chatId:
   state.activeChatId = chatId;
   state.chats = { ...chats, ...updatedChat };
 };
+
+export const changeMessageGenerationTo: Action<boolean> = function changeMessageGenerationTo({ state }, to: boolean) {
+  state.automaticallySendMessages = to;
+};
