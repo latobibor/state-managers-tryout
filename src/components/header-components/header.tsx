@@ -3,8 +3,9 @@ import { Menu, Typography } from 'antd';
 import styles from './header.module.less';
 import { Notifications } from './notifications';
 import { SocketControlsRedux } from './socket-controls.redux';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { SocketControlsOvermind } from './socket-controls.overmind';
+import { StateManagerSwitcher } from '../../common/state-manager-switcher';
 
 const { Text } = Typography;
 
@@ -34,14 +35,10 @@ export function HeaderWithNavigation() {
       </div>
       <div className={styles['header-group']}>
         <div className={styles['socket-controls-container']}>
-          <Switch>
-            <Route path="/" exact>
-              <SocketControlsRedux />
-            </Route>
-            <Route path="/overmind" exact>
-              <SocketControlsOvermind />
-            </Route>
-          </Switch>
+          <StateManagerSwitcher
+            reduxComponent={<SocketControlsRedux />}
+            overmindComponent={<SocketControlsOvermind />}
+          />
         </div>
         <div className={styles.notifications}>
           <Notifications />

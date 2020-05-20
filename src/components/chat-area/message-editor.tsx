@@ -10,7 +10,7 @@ import { User } from '../../clients/user-data';
 const { TextArea } = Input;
 
 type MessageEditorProps = {
-  activeChatId: string | undefined;
+  activeChatId: string | null;
   currentUser: User;
 };
 

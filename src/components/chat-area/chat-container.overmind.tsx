@@ -3,12 +3,11 @@ import styles from './chat-container.module.less';
 import { Name } from './name';
 import { MessageEditor } from './message-editor';
 import { Messages } from './messages/messages';
-import { GlobalState } from '../../shared-types/global-state';
-import { useSelector } from 'react-redux';
-import { getActiveChat, ContainerData } from './get-active-chat';
+import { useOvermindState } from '../../overmind/config';
+import { getActiveChat } from './get-active-chat';
 
-export function ChatContainerRedux() {
-  const { senderName, messages } = useSelector<GlobalState, ContainerData>(getActiveChat);
+export function ChatContainerOvermind() {
+  const { senderName, messages } = getActiveChat(useOvermindState());
 
   return (
     <div className={styles['chat-container']}>

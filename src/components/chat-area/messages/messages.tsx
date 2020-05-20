@@ -29,7 +29,7 @@ function sortMessagesByTime(a: MessageData, b: MessageData): number {
 export function Messages({ messages }: MessagesProps) {
   const currentUserId = useSelector<GlobalState, string>(getCurrentUserId);
 
-  const sortedMessages = messages.sort(sortMessagesByTime);
+  const sortedMessages = [...messages].sort(sortMessagesByTime);
 
   return (
     <div className={styles.messages}>

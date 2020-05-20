@@ -1,6 +1,6 @@
 import { Chats } from '../clients/messages-data';
 import { User } from '../clients/user-data';
-import { mockChats, dummyCurrentUser } from '../redux/mock-messages';
+import { mockChats, dummyCurrentUser, chatId1 } from '../redux/mock-messages';
 
 export type GlobalState = {
   activeChatId: string | null;
@@ -10,7 +10,7 @@ export type GlobalState = {
 };
 
 export const initialState: GlobalState = {
-  activeChatId: null,
+  activeChatId: chatId1,
   currentUser: dummyCurrentUser,
   chats: mockChats,
   automaticallySendMessages: true,

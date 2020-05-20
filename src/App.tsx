@@ -5,6 +5,8 @@ import { SideMenu } from './components/sidebar-components/sider';
 import { ChatContainerRedux } from './components/chat-area/chat-container.redux';
 import { Footer } from './components/footer';
 import { BrowserRouter } from 'react-router-dom';
+import { StateManagerSwitcher } from './common/state-manager-switcher';
+import { ChatContainerOvermind } from './components/chat-area/chat-container.overmind';
 
 function App() {
   return (
@@ -12,7 +14,7 @@ function App() {
       <HeaderWithNavigation />
       <div className={styles['app-content']}>
         <SideMenu />
-        <ChatContainerRedux />
+        <StateManagerSwitcher reduxComponent={<ChatContainerRedux />} overmindComponent={<ChatContainerOvermind />} />
       </div>
       <Footer />
     </BrowserRouter>
