@@ -1,11 +1,12 @@
 import React from 'react';
 import { Menu, Typography } from 'antd';
 import styles from './header.module.less';
-import { Notifications } from './notifications';
+import { NotificationsRedux } from './notifications.redux';
 import { SocketControlsRedux } from './socket-controls.redux';
 import { Link } from 'react-router-dom';
 import { SocketControlsOvermind } from './socket-controls.overmind';
 import { StateManagerSwitcher } from '../../common/state-manager-switcher';
+import { NotificationsOvermind } from './notifications.overmind';
 
 const { Text } = Typography;
 
@@ -41,7 +42,10 @@ export function HeaderWithNavigation() {
           />
         </div>
         <div className={styles.notifications}>
-          <Notifications />
+          <StateManagerSwitcher
+            reduxComponent={<NotificationsRedux />}
+            overmindComponent={<NotificationsOvermind />}
+          />
         </div>
       </div>
     </div>

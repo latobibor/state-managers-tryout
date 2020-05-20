@@ -3,25 +3,9 @@ import { CommentOutlined } from '@ant-design/icons';
 import styles from './notifications.module.less';
 import { useSelector } from 'react-redux';
 import { GlobalState } from '../../shared-types/global-state';
-import { Chat, MessageData } from '../../clients/messages-data';
+import { countNumberOfUnreadChats } from './notifications.common';
 
-function countNumberOfUnreadChats({ chats, currentUser }: GlobalState): number {
-  function countNumberOfUnreadMessages(accumulator: number, currentValue: MessageData): number {
-    if (!currentValue.isRead && currentValue.from.id !== currentUser.id) {
-      return accumulator + 1;
-    }
-
-    return accumulator;
-  }
-
-  function sumUnreadMessagesByChat(accumulator: number, currentValue: Chat): number {
-    return accumulator + currentValue.messages.reduce<number>(countNumberOfUnreadMessages, 0);
-  }
-
-  return Object.values(chats).reduce<number>(sumUnreadMessagesByChat, 0);
-}
-
-export function Notifications() {
+export function NotificationsRedux() {
   const numberOfUnreadChats = useSelector<GlobalState, number>(countNumberOfUnreadChats);
 
   return (
