@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 import { getActiveChat, ContainerData } from './get-active-chat';
 
 export function ChatContainerRedux() {
-  const { senderName, messages } = useSelector<GlobalState, ContainerData>(getActiveChat);
+  const { senderName, messages, currentUserId } = useSelector<GlobalState, ContainerData>(getActiveChat);
 
   return (
     <div className={styles['chat-container']}>
@@ -16,7 +16,7 @@ export function ChatContainerRedux() {
         <Name name={senderName} />
       </div>
       <div className={styles['messages-container']}>
-        <Messages messages={messages} />
+        <Messages messages={messages} currentUserId={currentUserId} />
       </div>
       <div>
         <MessageEditor />

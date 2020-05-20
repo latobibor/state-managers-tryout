@@ -2,16 +2,10 @@ import React from 'react';
 import { Message } from './message';
 import styles from './messages.module.less';
 import { MessageData } from '../../../clients/messages-data';
-import { GlobalState } from '../../../shared-types/global-state';
-import { useSelector } from 'react-redux';
 
 interface MessagesProps {
   messages: MessageData[];
-}
-
-// todo: candidate for extraction
-function getCurrentUserId(globalState: GlobalState): string {
-  return globalState.currentUser.id;
+  currentUserId: string;
 }
 
 function sortMessagesByTime(a: MessageData, b: MessageData): number {
@@ -26,9 +20,7 @@ function sortMessagesByTime(a: MessageData, b: MessageData): number {
   return -1;
 }
 
-export function Messages({ messages }: MessagesProps) {
-  const currentUserId = useSelector<GlobalState, string>(getCurrentUserId);
-
+export function Messages({ messages, currentUserId }: MessagesProps) {
   const sortedMessages = [...messages].sort(sortMessagesByTime);
 
   return (

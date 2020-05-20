@@ -5,11 +5,13 @@ import { getSenderNameFromRecipients } from '../../common/current-user-calculati
 export type ContainerData = {
   senderName: string;
   messages: MessageData[];
+  currentUserId: string;
 };
 
 export const dummyDataForEmptyCases: ContainerData = {
   senderName: 'N/A',
   messages: [],
+  currentUserId: '',
 };
 
 export function getActiveChat(globalState: GlobalState): ContainerData {
@@ -25,5 +27,6 @@ export function getActiveChat(globalState: GlobalState): ContainerData {
   return {
     senderName,
     messages: messages,
+    currentUserId: currentUser.id,
   };
 }
