@@ -14,16 +14,25 @@ export function HeaderWithNavigation() {
           State Management Try Outs
         </Text>
       </div>
-      <div className={styles['implementation-selector']}>
-        <Menu className={styles['ant-menu-override']} theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
-          <Menu.Item key="1">Redux version</Menu.Item>
-        </Menu>
+      <div className={`${styles['header-group']} ${styles.growable}`}>
+        <div className={styles['implementation-selector']}>
+          <Menu className={styles['ant-menu-override']} theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
+            <Menu.Item key="1">Redux version</Menu.Item>
+          </Menu>
+        </div>
+        <div className={styles['implementation-selector']}>
+          <Menu className={styles['ant-menu-override']} theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
+            <Menu.Item key="2">Overmind.js version</Menu.Item>
+          </Menu>
+        </div>
       </div>
-      <div className={styles['socket-controls-container']}>
-        <SocketControls />
-      </div>
-      <div className={styles.notifications}>
-        <Notifications />
+      <div className={styles['header-group']}>
+        <div className={styles['socket-controls-container']}>
+          <SocketControls />
+        </div>
+        <div className={styles.notifications}>
+          <Notifications />
+        </div>
       </div>
     </div>
   );
