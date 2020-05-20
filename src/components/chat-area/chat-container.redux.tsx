@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './chat-container.module.less';
 import { Name } from './name';
-import { MessageEditor } from './message-editor';
+import { MessageEditorRedux } from './message-editor.redux';
 import { Messages } from './messages/messages';
 import { GlobalState } from '../../shared-types/global-state';
 import { useSelector } from 'react-redux';
@@ -19,7 +19,7 @@ export function ChatContainerRedux() {
         <Messages messages={messages} currentUserId={currentUserId} />
       </div>
       <div>
-        <MessageEditor />
+        <MessageEditorRedux />
       </div>
     </div>
   );

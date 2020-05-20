@@ -14,7 +14,7 @@ type MessageEditorProps = {
   currentUser: User;
 };
 
-export function MessageEditor() {
+export function MessageEditorRedux() {
   const formReference = createRef<FormInstance>();
 
   const dispatch = useDispatch<DispatchAction<AddMessageAction>>();
