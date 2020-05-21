@@ -24,10 +24,6 @@ export function HeaderWithNavigation() {
             <Menu.Item key="1">
               <Link to="/">Redux version</Link>
             </Menu.Item>
-          </Menu>
-        </div>
-        <div className={styles['implementation-selector']}>
-          <Menu className={styles['ant-menu-override']} theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
             <Menu.Item key="2">
               <Link to="/overmind">Overmind.js version</Link>
             </Menu.Item>
