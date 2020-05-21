@@ -1,5 +1,5 @@
 import { GlobalState } from '../../shared-types/global-state';
-import { chatId1, person1, chatId2, person2 } from '../../redux/mock-messages';
+import { chatId1, person1, chatId2, person2 } from '../../common/mock-messages';
 import { getSenderNameFromRecipients } from '../../common/current-user-calculations';
 import { MessageData } from '../../clients/messages-data';
 

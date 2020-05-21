@@ -1,5 +1,5 @@
 import { MessageData } from './messages-data';
-import { chatId1, chatId2, person1, person2 } from '../redux/mock-messages';
+import { chatId1, chatId2, person1, person2 } from '../common/mock-messages';
 
 export function createMessage(isPerson1: boolean): MessageData {
   const body = resolveTemplate();
