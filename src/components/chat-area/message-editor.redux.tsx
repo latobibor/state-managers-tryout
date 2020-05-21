@@ -4,17 +4,17 @@ import styles from './message-editor.module.less';
 import { useDispatch, useSelector } from 'react-redux';
 import { Actions, DispatchAction, AddMessageAction } from '../../redux/root-reducer';
 import { FormInstance } from 'antd/lib/form';
-import { GlobalState } from '../../redux/global-state';
+import { GlobalState } from '../../shared-types/global-state';
 import { User } from '../../clients/user-data';
 
 const { TextArea } = Input;
 
 type MessageEditorProps = {
-  activeChatId: string | undefined;
+  activeChatId: string | null;
   currentUser: User;
 };
 
-export function MessageEditor() {
+export function MessageEditorRedux() {
   const formReference = createRef<FormInstance>();
 
   const dispatch = useDispatch<DispatchAction<AddMessageAction>>();

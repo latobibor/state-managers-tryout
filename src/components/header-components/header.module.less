@@ -12,6 +12,15 @@
   justify-content: space-between;
 
   box-sizing: border-box;
+
+  .header-group {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .growable {
+    flex-grow: 1;
+  }
 }
 
 .text {
@@ -25,7 +34,7 @@
 }
 
 .implementation-selector {
-  flex-grow: 1;
+  flex-grow: 0;
   .padding-x(@spacing-unit * 2);
 }
 

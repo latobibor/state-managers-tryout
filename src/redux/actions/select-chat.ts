@@ -1,4 +1,4 @@
-import { GlobalState } from '../global-state';
+import { GlobalState } from '../../shared-types/global-state';
 import { SelectChatAction } from '../root-reducer';
 
 export function selectChat(state: GlobalState, { chatId }: SelectChatAction): GlobalState {

@@ -1,16 +1,16 @@
 import { Chats } from '../clients/messages-data';
 import { User } from '../clients/user-data';
-import { mockChats, dummyCurrentUser } from './mock-messages';
+import { mockChats, dummyCurrentUser, chatId1 } from '../common/mock-messages';
 
 export type GlobalState = {
-  activeChatId: string | undefined;
+  activeChatId: string | null;
   currentUser: User;
   chats: Chats;
   automaticallySendMessages: boolean;
 };
 
-export const initialState = {
-  activeChatId: undefined,
+export const initialState: GlobalState = {
+  activeChatId: chatId1,
   currentUser: dummyCurrentUser,
   chats: mockChats,
   automaticallySendMessages: true,
