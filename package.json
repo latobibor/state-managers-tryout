@@ -43,7 +43,7 @@
     "prettier": "^2.0.1",
     "react-app-rewired": "^2.1.5",
     "react-scripts": "3.4.1",
-    "stylelint": "^13.2.1",
+    "stylelint": "^15.10.1",
     "stylelint-config-standard": "^20.0.0",
     "typescript": "latest",
     "typescript-plugin-css-modules": "^2.2.0"
